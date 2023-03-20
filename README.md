@@ -1,6 +1,9 @@
 # TypeWaveFlow
 TypeWaveFlow is a simple package which displays each character of word in an type wave effect.
 
+![TypeWaveFlow in action](https://github.com/arhamkhnz/TypeWaveFlow/blob/main/demo.gif)
+
+
 ## Usage
 
 ### Via NPM
@@ -17,6 +20,11 @@ To install the package, run `npm install type-wave-flow`
     '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'
   ];
 ```
+
+- word (string, required): The word to be displayed in the TypeWaveFlow effect.
+- characters (array, required): An array of characters to be displayed in the effect. 
+- consoleElem (DOM element, required): The DOM element where the effect should be displayed.
+- delay (number, required): The delay (in milliseconds) between each frame of the effect.
 
 #### In React
 
