@@ -78,6 +78,20 @@ export class MyComponent implements AfterViewInit {
 }
 ```
 
+## Features 
+
+- [x] TypeWaveFlow effect for displaying text in a wave-like motion
+- [x] Dynamic word, character set, console element, and delay settings
+- [x] Works in JavaScript, React, and Angular
+- [ ] Option to display the effect in different colors or gradients
+- [ ] Option to display effect in different patterns
+- [ ] Ability to pause and resume the effect
+- [ ] Option to change the direction of the wave animation (e.g. left-to-right, right-to-left)
+
+We are constantly working to improve and expand the capabilities of TypeWaveFlow, so stay tuned for updates and new features!
+
+We are always looking for ways to improve and enhance our software, so please feel free to share any feedback or ideas you may have!
+
 ## Contribution
 
 If you'd like to contribute to TypeWaveFlow, please fork the repository and submit a pull request.
