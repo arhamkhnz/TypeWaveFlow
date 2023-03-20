@@ -56,7 +56,7 @@ function MyComponent() {
 
 ```javascript
 import { Component, ElementRef, AfterViewInit, ViewChild } from '@angular/core';
-import { printWord } from 'type-wave-flow';
+import rotateAllText from 'type-wave-flow';
 
 @Component({
   selector: 'app-my-component',
@@ -66,7 +66,7 @@ export class MyComponent implements AfterViewInit {
   @ViewChild('console', { static: false }) consoleRef: ElementRef;
 
   ngAfterViewInit(): void {
-    printWord('hello', {
+    rotateAllText('hello', {
       characters: [' ', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
         'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', "'", '!', 
         '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'
