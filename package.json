@@ -1,6 +1,6 @@
 {
   "name": "type-wave-flow",
-  "version": "1.0.0",
+  "version": "1.0.7",
   "description": "type-wave-flow is a package where users input the text or numbers & print it in different effects on screen",
   "main": "index.js",
   "scripts": {
