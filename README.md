@@ -21,6 +21,8 @@ To install the package, run `npm install type-wave-flow`
   ];
 ```
 
+#### Function Parameters
+
 - word (string, required): The word to be displayed in the TypeWaveFlow effect.
 - characters (array, required): An array of characters to be displayed in the effect. 
 - consoleElem (DOM element, required): The DOM element where the effect should be displayed.
