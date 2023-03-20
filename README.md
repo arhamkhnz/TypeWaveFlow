@@ -95,3 +95,7 @@ We are always looking for ways to improve and enhance our software, so please fe
 ## Contribution
 
 If you'd like to contribute to TypeWaveFlow, please fork the repository and submit a pull request.
+
+## License 
+
+[MIT](https://github.com/arhamkhnz/TypeWaveFlow/blob/add-license-1/LICENSE.md)
