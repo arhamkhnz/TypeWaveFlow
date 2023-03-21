@@ -1,7 +1,21 @@
 # TypeWaveFlow
 TypeWaveFlow is a simple package which displays each character of word in an type wave effect.
 
-![TypeWaveFlow in action](https://github.com/arhamkhnz/TypeWaveFlow/blob/main/demo.gif)
+
+### Rotation Print
+![TypeWaveFlow in action](https://github.com/arhamkhnz/TypeWaveFlow/blob/main/demo/rotationPrint.gif)
+
+
+### Smooth Print
+![TypeWaveFlow in action](https://github.com/arhamkhnz/TypeWaveFlow/blob/main/demo/smoothPrint.gif)
+
+
+### After Effect
+![TypeWaveFlow in action](https://github.com/arhamkhnz/TypeWaveFlow/blob/main/demo/afterEffect.gif)
+
+
+### Scroll Print
+![TypeWaveFlow in action](https://github.com/arhamkhnz/TypeWaveFlow/blob/main/demo/scrollPrint.gif)
 
 
 ## Usage
@@ -27,18 +41,20 @@ To install the package, run `npm install type-wave-flow`
 - characters (array, required): An array of characters to be displayed in the effect. 
 - consoleElem (DOM element, required): The DOM element where the effect should be displayed.
 - delay (number, required): The delay (in milliseconds) between each frame of the effect.
+- completeLimit (number, required): Only required when using scroll print effect to define how many times the complted word should print
 
 #### In React
 
 ```javascript
 import React, { useEffect, useRef } from 'react';
-import rotateAllText from 'type-wave-flow';
+import { TypeWaveFlow } from 'type-wave-flow';
 
 function MyComponent() {
   const consoleRef = useRef(null);
+  const scrollPrintRef = useRef(null);
 
   useEffect(() => {
-    rotateAllText('hello', {
+    TypeWaveFlow.rotationPrint('hello', {
       characters: [' ', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
         'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', "'", '!', 
         '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'
@@ -49,6 +65,23 @@ function MyComponent() {
   }, []);
 
   return <div ref={consoleRef}></div>;
+  
+  
+  
+  useEffect(() => {
+    TypeWaveFlow.scrollPrint('hello', {
+      characters: [' ', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
+        'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', "'", '!', 
+        '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'
+      ],
+      consoleElem: scrollPrintRef.current,
+      delay: 20,
+      completeLimit: 10 //The Number of times the completed word should print while scrolling
+    });
+  }, []);
+
+  return <div ref={scrollPrintRef}></div>;
+  
 }
 ```
 
@@ -56,23 +89,38 @@ function MyComponent() {
 
 ```javascript
 import { Component, ElementRef, AfterViewInit, ViewChild } from '@angular/core';
-import rotateAllText from 'type-wave-flow';
+import { TypeWaveFlow } from 'type-wave-flow';
 
 @Component({
   selector: 'app-my-component',
-  template: '<div #console></div>'
+  template: '<div #console></div>   <div #printScroll></div>'
 })
 export class MyComponent implements AfterViewInit {
   @ViewChild('console', { static: false }) consoleRef: ElementRef;
+  @ViewChild('printScroll', { static: false }) printScrollRef: ElementRef;
 
   ngAfterViewInit(): void {
-    rotateAllText('hello', {
+    TypeWaveFlow.rotationPrint('hello', {
       characters: [' ', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
         'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', "'", '!', 
         '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'
       ],
       consoleElem: this.consoleRef.nativeElement,
       delay: 20
+    });
+  }
+  
+  
+  
+  ngAfterViewInit(): void {
+    TypeWaveFlow.scrollPrint('hello', {
+      characters: [' ', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
+        'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', "'", '!', 
+        '0', '1', '2', '3', '4', '5', '6', '7', '8', '9'
+      ],
+      consoleElem: this.printScrollRef.nativeElement,
+      delay: 20,
+      completeLimit: 10 //The Number of times the completed word should print while scrolling
     });
   }
 }
