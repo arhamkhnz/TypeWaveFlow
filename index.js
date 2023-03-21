@@ -40,6 +40,7 @@ const TypeWaveFlow = {
     let current_word = "";
 
     for (let i = 0; i < word.length; i++) {
+      let characterFound = false;
       for (let j = 0; j < characters.length; j++) {
         consoleElem.innerText += current_word + characters[j] + "\n";
         consoleElem.scrollTop = consoleElem.scrollHeight;
@@ -49,6 +50,7 @@ const TypeWaveFlow = {
           word[i] === characters[j].toUpperCase()
         ) {
           current_word = current_word + characters[j];
+          characterFound = true;
           if (current_word === word) {
             for (let k = 0; k < completeLimit; k++) {
               consoleElem.innerText += current_word + "\n";
@@ -58,6 +60,9 @@ const TypeWaveFlow = {
           }
           break;
         }
+      }
+      if (!characterFound) {
+        current_word += word[i];
       }
     }
   },
