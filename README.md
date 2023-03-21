@@ -16,7 +16,7 @@ TypeWaveFlow is a simple package which displays each character of word in an typ
 
 ### Scroll Print
 ![TypeWaveFlow in action](https://github.com/arhamkhnz/TypeWaveFlow/blob/main/demo/scrollPrint.gif)
-
+*Do use CSS `overflow-y: scroll` in the element in which you're printing to give scrolling effect
 
 ## Usage
 
