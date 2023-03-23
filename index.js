@@ -1,5 +1,15 @@
+let defaultCharacters = [
+  ' ', 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm',
+  'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', "'", '!', 
+  '0', '1', '2', '3', '4', '5', '6', '7', '8', '9', '#', '$', '%', '&', '*', '@'
+]
+
+let defaultDelay = 20
+
+let defaultCompleteLimit = 10
+
 const TypeWaveFlow = {
-  rotationPrint: async function (word, characters, consoleElemId, delay) {
+  rotationPrint: async function (word, consoleElemId, characters = defaultCharacters, delay = defaultDelay) {
     const consoleElem = document.getElementById(consoleElemId);
     let current_word = "";
     let i = 0;
@@ -31,10 +41,10 @@ const TypeWaveFlow = {
 
   scrollPrint: async function (
     word,
-    characters,
     consoleElemId,
-    delay,
-    completeLimit
+    characters = defaultCharacters,
+    delay = defaultDelay,
+    completeLimit = defaultCompleteLimit
   ) {
     const consoleElem = document.getElementById(consoleElemId);
     let current_word = "";
@@ -67,7 +77,7 @@ const TypeWaveFlow = {
     }
   },
 
-  smoothPrint: async function (word, characters, consoleElemId, delay) {
+  smoothPrint: async function (word, consoleElemId, characters = defaultCharacters, delay = defaultDelay) {
     const consoleElem = document.getElementById(consoleElemId);
     let current_word = "";
 
@@ -93,7 +103,7 @@ const TypeWaveFlow = {
     consoleElem.innerText = current_word;
   },
 
-  afterEffect: async function(word, characters, consoleElemId, delay) {
+  afterEffect: async function(word, consoleElemId, characters = defaultCharacters, delay = defaultDelay) {
     const consoleElem = document.getElementById(consoleElemId);
     let current_word = '';
     const wordLength = word.length;
