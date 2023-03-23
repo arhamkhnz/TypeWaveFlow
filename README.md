@@ -20,6 +20,38 @@ TypeWaveFlow is a simple package which displays each character of word in an typ
 
 ## Usage
 
+#### Function Parameters
+
+- word (string, required): The word to be displayed in the TypeWaveFlow effect.
+- consoleElemId (DOM element, required): The DOM element where the effect should be displayed.
+- characters (array, contains default value): An array of characters to be displayed in the effect. By Default it contains 36 characters consisting 26 alphabets & 0 - 9 integers.
+- delay (number, contains default value): The delay (in milliseconds) between each frame of the effect. By Default it is 20 (in milliseconds)
+- completeLimit (number, contains default value): Only required when using scroll print effect to define how many times the complted word should print. By Default it is 10.
+
+```javascript
+
+// order of function parameters
+TypeWaveFlow.rotationPrint(word, consoleElemId, characters, delay)
+
+// parameter completeLimit should only be required in Scroll Print Effect
+TypeWaveFlow.rotationPrint(word, consoleElemId, characters, delay, completeLimit)
+```
+
+```javascript
+
+// available functions
+
+TypeWaveFlow.rotationPrint(word, consoleElemId, characters, delay)
+
+TypeWaveFlow.smoothPrint(word, consoleElemId, characters, delay)
+
+TypeWaveFlow.afterEffect(word, consoleElemId, characters, delay)
+
+TypeWaveFlow.scrollPrint(word, consoleElemId, characters, delay, completeLimit) // parameter completeLimit should only be required in Scroll Print Effect
+
+
+```
+
 ### Via CDN
 
 ```javascript 
@@ -29,26 +61,23 @@ TypeWaveFlow is a simple package which displays each character of word in an typ
 ```
 
 ```javascript
+ const word = 'hello world'
+ const consoleElemId = 'console'
+ const characters = ['q', 'w', 'e', 'r', 't', 'y']
+ const delay = 50
+
  // Using default values for characters & delay (in milliseconds)
- window.onload = () =>  TypeWaveFlow.rotationPrint(word = 'hello world', consoleElemId = 'console'); 
+ window.onload = () =>  TypeWaveFlow.rotationPrint(word, consoleElemId); 
  
  
  // Using custom parameters for characters & delay (in milliseconds)
- window.onload = () =>  TypeWaveFlow.rotationPrint(word = 'hello world', consoleElemId = 'console', characters = ['q', 'w', 'e', 'r', 't', 'y'], delay = 100); 
+ window.onload = () =>  TypeWaveFlow.rotationPrint(word, consoleElemId, characters, delay); 
 ```
 
 
 ### Via NPM
 
 To install the package, run `npm install type-wave-flow`
-
-#### Function Parameters
-
-- word (string, required): The word to be displayed in the TypeWaveFlow effect.
-- consoleElem (DOM element, required): The DOM element where the effect should be displayed.
-- characters (array, contains default value): An array of characters to be displayed in the effect. By Default it contains 36 characters consisting 26 alphabets & 0 - 9 integers.
-- delay (number, contains default value): The delay (in milliseconds) between each frame of the effect. By Default it is 20 (in milliseconds)
-- completeLimit (number, contains default value): Only required when using scroll print effect to define how many times the complted word should print. By Default it is 10.
 
 #### In React
 
@@ -61,8 +90,10 @@ function MyComponent() {
   const consoleRefTwo = useRef(null);
 
   useEffect(() => {
-    // here using default values for characters & delay
-    TypeWaveFlow.rotationPrint(word = 'hello world', consoleElemId = 'consoleRef');
+    // using default values for characters & delay
+    const word = 'hello world'
+    
+    TypeWaveFlow.rotationPrint(word, consoleRef);
   }, []);
 
   return <div ref={consoleRef}></div>;
@@ -71,7 +102,11 @@ function MyComponent() {
   
   useEffect(() => {
     // using custom parameters
-    TypeWaveFlow.smoothPrint(word = 'hello world', consoleElemId = consoleRefTwo, characters = ['q', 'w', 'e', 'r', 't', 'y'], delay = 50);
+    const word = 'hello world'
+    const characters = ['q', 'w', 'e', 'r', 't', 'y']
+    const delay = 50
+    
+    TypeWaveFlow.smoothPrint(word, consoleRefTwo, characters, delay);
   }, []);
 
   return <div ref={consoleRefTwo}></div>;
@@ -87,23 +122,30 @@ import { TypeWaveFlow } from 'type-wave-flow';
 
 @Component({
   selector: 'app-my-component',
-  template: '<div #console></div>   <div #printScroll></div>'
+  template: '<div #console></div>   <div style="overflow-y: scroll" #printScroll></div>'
 })
 export class MyComponent implements AfterViewInit {
   @ViewChild('console', { static: false }) consoleRef: ElementRef;
   @ViewChild('printScroll', { static: false }) printScrollRef: ElementRef;
 
   ngAfterViewInit(): void {
-    // here using default values for characters & delay
-    TypeWaveFlow.rotationPrint(word = 'hello world', consoleElemId = this.consoleRef.nativeElement);
+    // using default values for characters & delay
+    const word = 'hello world'
+    
+    TypeWaveFlow.rotationPrint(word, this.consoleRef.nativeElement);
   }
   
   
   
   ngAfterViewInit(): void {
     // using custom parameters
-    // argument completeLimit is numner of times the completed word should print while scrolling
-    TypeWaveFlow.scrollPrint(word = 'hello world', consoleElemId = this.printScrollRef.nativeElement, characters = ['q', 'w', 'e', 'r', 't', 'y'], delay = 100, completeLimit: 10);
+    // argument completeLimit is number of times the completed word should print while scrolling
+    const word = 'hello world'
+    const characters = ['q', 'w', 'e', 'r', 't', 'y']
+    const delay = 50
+    const completeLimit = 20
+    
+    TypeWaveFlow.scrollPrint(word, this.printScrollRef.nativeElement, characters, delay, completeLimit);
 }
 ```
 
