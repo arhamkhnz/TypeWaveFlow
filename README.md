@@ -1,5 +1,11 @@
 # TypeWaveFlow
-TypeWaveFlow is a simple package which displays each character of word in an type wave effect.
+TypeWaveFlow is a lightweight package that provides a simple yet visually appealing effect for displaying text in a wave-like motion. With just a few lines of code, you can add a TypeWaveFlow effect to your web application, giving your users an engaging and dynamic experience.
+
+## Features
+
+* TypeWaveFlow effect for displaying text in a wave-like motion
+* Dynamic word, character set, console element, and delay settings
+* Works in JavaScript, React, and Angular
 
 
 ### Rotation Print
@@ -149,11 +155,8 @@ export class MyComponent implements AfterViewInit {
 }
 ```
 
-## Features 
+## Upcoming Features 
 
-- [x] TypeWaveFlow effect for displaying text in a wave-like motion
-- [x] Dynamic word, character set, console element, and delay settings
-- [x] Works in JavaScript, React, and Angular
 - [ ] Option to display the effect in different colors or gradients
 - [ ] Option to display effect in different patterns
 - [ ] Ability to pause and resume the effect
